@@ -1,0 +1,576 @@
+
+    <!DOCTYPE html>
+    <!--
+      Generated with CSEdge Portfolio Builder
+      https://csedge.co
+      Author: CSEdge - Empowering Developers Worldwide
+      Template: Vibrant Minimal
+    -->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dhanyasree.K | Vibrant Minimal</title>
+        <script src="https://cdn.tailwindcss.com"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+        <style>
+            :root {
+                --primary: #4F46E5;
+                --secondary: #10B981;
+            }
+            body {
+                font-family: 'Plus Jakarta Sans', sans-serif;
+                background-color: #ffffff;
+                color: #1e293b;
+                margin: 0;
+            }
+            h1, h2, h3, .font-serif {
+                font-family: 'Playfair Display', serif;
+            }
+
+            /* Minimal Preloader */
+            #preloader {
+                position: fixed;
+                inset: 0;
+                background: #fff;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+                transition: transform 1s cubic-bezier(1, 0, 0, 1);
+            }
+            .dot-container {
+                display: flex;
+                gap: 8px;
+            }
+            .dot {
+                width: 12px;
+                height: 12px;
+                background: var(--primary);
+                border-radius: 50%;
+                animation: pulse 1.5s infinite;
+            }
+            .dot:nth-child(2) { animation-delay: 0.2s; background: var(--secondary); }
+            .dot:nth-child(3) { animation-delay: 0.4s; background: #F59E0B; }
+            @keyframes pulse {
+                0%, 100% { transform: scale(1); opacity: 1; }
+                50% { transform: scale(1.5); opacity: 0.5; }
+            }
+
+            /* Reveal Animations */
+            .reveal {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+            .reveal.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            .stagger-1 { transition-delay: 0.1s; }
+            .stagger-2 { transition-delay: 0.2s; }
+            .stagger-3 { transition-delay: 0.3s; }
+
+            .soft-card {
+                background: #ffffff;
+                border-radius: 2rem;
+                box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
+                border: 1px solid rgba(0,0,0,0.03);
+                transition: all 0.3s ease;
+            }
+            .soft-card:hover {
+                box-shadow: 0 20px 50px -10px rgba(0,0,0,0.1);
+                border-color: var(--primary)20;
+            }
+
+            .image-hover {
+                overflow: hidden;
+                border-radius: 1.5rem;
+            }
+            .image-hover img {
+                transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+            }
+            .image-hover:hover img {
+                transform: scale(1.05);
+            }
+
+            .nav-link {
+                position: relative;
+                color: #64748b;
+                transition: color 0.3s ease;
+            }
+            .nav-link:hover { color: var(--primary); }
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: -4px;
+                left: 0;
+                width: 0;
+                height: 2px;
+                background: var(--primary);
+                transition: width 0.3s ease;
+            }
+            .nav-link:hover::after { width: 100%; }
+
+            /* Mobile Menu */
+            #mobile-menu {
+                transition: opacity 0.3s ease, transform 0.3s ease;
+                opacity: 0;
+                pointer-events: none;
+                transform: translateY(-10px);
+            }
+            #mobile-menu.open {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+
+            .vibrant-gradient {
+                background: linear-gradient(135deg, var(--primary), #818cf8);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            @media (max-width: 768px) {
+                .hero-text { font-size: 3rem; }
+            }
+        </style>
+    </head>
+    <body class="selection:bg-indigo-100 selection:text-indigo-600">
+        <div id="preloader">
+            <div class="dot-container">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+        </div>
+
+        <nav class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md">
+            <div class="max-w-6xl mx-auto px-6 h-20 flex justify-between items-center relative">
+                <div class="text-xl font-extrabold flex items-center gap-2">
+                    <span class="w-8 h-8 rounded-lg bg-indigo-600 text-white flex items-center justify-center text-xs italic">V</span>
+                    Dhanyasree.K<span class="text-indigo-600">.</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex gap-10 items-center">
+                    <a href="#about" class="nav-link text-sm font-semibold no-underline">Intro</a>
+                    <a href="#projects" class="nav-link text-sm font-semibold no-underline">Works</a>
+                    <a href="#experience" class="nav-link text-sm font-semibold no-underline">Life</a>
+                    <a href="#contact" class="px-6 py-2.5 bg-indigo-600 text-white text-sm font-bold rounded-full hover:bg-slate-900 transition-all shadow-lg shadow-indigo-100 no-underline">Let's talk</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="w-10 h-10 flex items-center justify-center text-slate-900 md:hidden bg-slate-100 rounded-full">
+                    <i class="fas fa-bars"></i>
+                </button>
+
+                <!-- Mobile Dropdown -->
+                <div id="mobile-menu" class="absolute top-24 left-6 right-6 bg-white rounded-3xl shadow-2xl p-6 border border-slate-100 flex flex-col gap-4 text-center">
+                     <a href="#about" class="py-3 text-slate-600 font-bold hover:text-indigo-600 mobile-link no-underline">Intro</a>
+                     <a href="#projects" class="py-3 text-slate-600 font-bold hover:text-indigo-600 mobile-link no-underline">Works</a>
+                     <a href="#experience" class="py-3 text-slate-600 font-bold hover:text-indigo-600 mobile-link no-underline">Life</a>
+                     <a href="#contact" class="py-3 bg-indigo-50 text-indigo-600 font-bold rounded-xl mobile-link no-underline">Let's talk</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="overflow-hidden">
+            <!-- Hero -->
+            <section id="about" class="pt-40 pb-24 px-6">
+                <div class="max-w-6xl mx-auto flex flex-col items-center text-center">
+                    <div class="reveal px-4 py-1.5 rounded-full bg-indigo-50 text-indigo-600 text-[11px] font-bold uppercase tracking-widest mb-8">
+                        Crafting digital joy
+                    </div>
+                    <h1 class="hero-text text-5xl md:text-8xl font-bold text-slate-900 leading-[1.1] mb-8 reveal stagger-1">
+                        Designing the future with <span class="vibrant-gradient font-serif italic">vibrant simplicity.</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-500 max-w-2xl leading-relaxed mb-12 reveal stagger-2">
+                        Aspiring Data Analyst with strong technical skills in Python and libraries, SQL, HTML, C(Intermediate), Java(Basic). Proficient in Excel for data analysis and visualization. Skilled in research, communication, presentation, problem-solving, time management, and project management. A creative thinker with a passion for data- driven, decision-making and insights. Eager to apply analytical skills to solve real-world challenges efficiently.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center reveal stagger-3">
+                         
+                            <a href="https://www.linkedin.com/in/dhanya-sree-48286931a/" target="_blank" class="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:text-indigo-600 hover:border-indigo-100 transition-all no-underline text-xl">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                        
+                            <a href="https://github.com/KDhanyasree26" target="_blank" class="w-14 h-14 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-400 hover:text-indigo-600 hover:border-indigo-100 transition-all no-underline text-xl">
+                                <i class="fab fa-github"></i>
+                            </a>
+                        
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects -->
+            
+            <section id="projects" class="py-24 px-6 bg-slate-50">
+                <div class="max-w-6xl mx-auto">
+                    <div class="flex items-center justify-between mb-20">
+                        <h2 class="text-4xl md:text-5xl font-bold text-slate-900">Portfolio Highlights</h2>
+                        <div class="w-24 h-1.5 bg-indigo-600 rounded-full"></div>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        
+                            <div class="reveal group h-full">
+                                <div class="soft-card p-4 md:p-6 flex flex-col h-full bg-white">
+                                    
+                                    <div class="px-4 pb-4 flex-1 flex flex-col">
+                                        <div class="flex gap-2 mb-6 flex-wrap">
+                                            
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Smart Text Processing & Dictionary Web Application</h3>
+                                        <p class="text-slate-500 leading-relaxed mb-8 flex-1">Developed a Flask-based NLP web application that performs automatic text summarization and dictionary word analysis. Implemented features like word meanings, synonyms, antonyms, example sentences, Hindi translation, and text-to-speech using NLTK, WordNet, and Google Translator API. </p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="reveal group h-full">
+                                <div class="soft-card p-4 md:p-6 flex flex-col h-full bg-white">
+                                    
+                                    <div class="px-4 pb-4 flex-1 flex flex-col">
+                                        <div class="flex gap-2 mb-6 flex-wrap">
+                                            
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Secure Banking Management</h3>
+                                        <p class="text-slate-500 leading-relaxed mb-8 flex-1">Full-Stack Flask web app with dual-role(Admin/Customer) authentication, account management, deposit/withdraw operations, and role-based access control using SQLite database. Implemented secure password hashing(SHA-256), customer self-registration, session management, and responsive UI with real time flash notifications.</p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="reveal group h-full">
+                                <div class="soft-card p-4 md:p-6 flex flex-col h-full bg-white">
+                                    
+                                    <div class="px-4 pb-4 flex-1 flex flex-col">
+                                        <div class="flex gap-2 mb-6 flex-wrap">
+                                            
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Excel Project: Money Budget for year</h3>
+                                        <p class="text-slate-500 leading-relaxed mb-8 flex-1">Used formulas such as Index, Match, Max, Difference, Multiplication, Pie chart, Area chart, analyzed who got more savings and less savings. </p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="reveal group h-full">
+                                <div class="soft-card p-4 md:p-6 flex flex-col h-full bg-white">
+                                    
+                                    <div class="px-4 pb-4 flex-1 flex flex-col">
+                                        <div class="flex gap-2 mb-6 flex-wrap">
+                                            
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-slate-900 mb-4">MINIGAMES</h3>
+                                        <p class="text-slate-500 leading-relaxed mb-8 flex-1">As I developed the 4 mini games such as tic tac toe, Whack a mole, Pacman, Pong in single website.</p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="reveal group h-full">
+                                <div class="soft-card p-4 md:p-6 flex flex-col h-full bg-white">
+                                    
+                                    <div class="px-4 pb-4 flex-1 flex flex-col">
+                                        <div class="flex gap-2 mb-6 flex-wrap">
+                                            
+                                        </div>
+                                        <h3 class="text-2xl font-bold text-slate-900 mb-4">Crytocurrency Price Prediction through time series forecasting using DL and Statistical Models</h3>
+                                        <p class="text-slate-500 leading-relaxed mb-8 flex-1">Developed a multi-cryptocurrency forecasting system analyzing 10 major cryptocurrencies (BTC, ETH, SOL, etc.) using LSTM  DL, Prophet statistical models, and ARIMA for time series prediction.</p>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        
+                    </div>
+                </div>
+            </section>
+            
+
+            <!-- Experience -->
+            
+            <section id="experience" class="py-24 px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-4xl font-bold text-center text-slate-900 mb-20 font-serif italic italic underline decoration-secondary decoration-4 underline-offset-8">Life So Far</h2>
+                    <div class="space-y-12">
+                        
+                            <div class="reveal flex flex-col md:flex-row gap-8 md:gap-16 border-b border-slate-100 pb-12 last:border-0 items-start">
+                                <div class="w-24 shrink-0 font-bold text-indigo-600">2025 — 2025</div>
+                                <div class="flex-1">
+                                    <h3 class="text-2xl font-extrabold text-slate-900 mb-2">AI-Data Quality Analyst</h3>
+                                    <p class="text-secondary font-bold text-[11px] uppercase tracking-widest mb-6">Rooman Technologies</p>
+                                    <p class="text-slate-500 leading-relaxed">I completed an internship at Rooman Technologies as an AI-Data Quality Analyst. I worked on the Airbnb Booking Analysis project, where I was provided with a dataset. I performed data cleaning using various operations and created data visualizations to analyze the dataset.</p>
+                                </div>
+                            </div>
+                        
+                            <div class="reveal flex flex-col md:flex-row gap-8 md:gap-16 border-b border-slate-100 pb-12 last:border-0 items-start">
+                                <div class="w-24 shrink-0 font-bold text-indigo-600">2024 — 2024</div>
+                                <div class="flex-1">
+                                    <h3 class="text-2xl font-extrabold text-slate-900 mb-2">Artificial Intelligence</h3>
+                                    <p class="text-secondary font-bold text-[11px] uppercase tracking-widest mb-6">Elewayte</p>
+                                    <p class="text-slate-500 leading-relaxed">I completed an AI-Internship at Elewayte Company. I worked on both minor and major projects, where a URL link was provided for the minor project. For the project, a dataset and questions were given, and I solved them according to the requirements.</p>
+                                </div>
+                            </div>
+                        
+                    </div>
+                </div>
+            </section>
+            
+
+            <!-- Skills Grid -->
+            
+            <section class="py-24 px-6 bg-slate-900 text-white">
+                <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-6xl font-bold mb-8">My technical weaponry.</h2>
+                        <p class="text-slate-400 text-lg">A growing list of tools and technologies I use to bring ideas to life.</p>
+                    </div>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                        
+                            <div class="reveal p-6 rounded-3xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-all group">
+                                <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="text-sm font-bold uppercase tracking-widest">Python</div>
+                            </div>
+                        
+                            <div class="reveal p-6 rounded-3xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-all group">
+                                <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="text-sm font-bold uppercase tracking-widest">C</div>
+                            </div>
+                        
+                            <div class="reveal p-6 rounded-3xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-all group">
+                                <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="text-sm font-bold uppercase tracking-widest">HTML</div>
+                            </div>
+                        
+                            <div class="reveal p-6 rounded-3xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-all group">
+                                <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="text-sm font-bold uppercase tracking-widest">sql</div>
+                            </div>
+                        
+                            <div class="reveal p-6 rounded-3xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-all group">
+                                <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="text-sm font-bold uppercase tracking-widest">Numpy</div>
+                            </div>
+                        
+                            <div class="reveal p-6 rounded-3xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-all group">
+                                <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="text-sm font-bold uppercase tracking-widest">Pandas</div>
+                            </div>
+                        
+                            <div class="reveal p-6 rounded-3xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-all group">
+                                <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="text-sm font-bold uppercase tracking-widest">Matplotlib</div>
+                            </div>
+                        
+                            <div class="reveal p-6 rounded-3xl bg-white/5 border border-white/10 text-center hover:bg-white/10 transition-all group">
+                                <div class="w-12 h-12 rounded-2xl bg-indigo-600/20 text-indigo-400 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
+                                    <i class="fas fa-bolt"></i>
+                                </div>
+                                <div class="text-sm font-bold uppercase tracking-widest">Scikit-Learn</div>
+                            </div>
+                        
+                    </div>
+                </div>
+            </section>
+            
+
+            <!-- Mixed Blocks (Education, Awards, Certs) -->
+            <section class="py-24 px-6">
+                <div class="max-w-6xl mx-auto">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
+                        <!-- Education -->
+                        
+                        <div class="lg:col-span-12">
+                            <h2 class="text-3xl font-bold mb-12 flex items-center gap-4">
+                                <span class="w-12 h-1 bg-indigo-600 rounded-full"></span>
+                                Academic Journey
+                            </h2>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                
+                                    <div class="reveal soft-card p-10">
+                                         <div class="text-indigo-600 font-bold text-xs mb-4">2022 — 2026</div>
+                                         <h3 class="text-xl font-bold text-slate-900 mb-2">Bachelor Of Technology</h3>
+                                         <p class="text-slate-500 font-medium mb-4">Vemu Institute Of Technology</p>
+                                         <p class="text-sm text-slate-400 leading-relaxed"></p>
+                                    </div>
+                                
+                                    <div class="reveal soft-card p-10">
+                                         <div class="text-indigo-600 font-bold text-xs mb-4">2020 — 2022</div>
+                                         <h3 class="text-xl font-bold text-slate-900 mb-2">Intermediate</h3>
+                                         <p class="text-slate-500 font-medium mb-4">Sri Vivekananda Junior College</p>
+                                         <p class="text-sm text-slate-400 leading-relaxed"></p>
+                                    </div>
+                                
+                                    <div class="reveal soft-card p-10">
+                                         <div class="text-indigo-600 font-bold text-xs mb-4">2019 — 2020</div>
+                                         <h3 class="text-xl font-bold text-slate-900 mb-2">SSC</h3>
+                                         <p class="text-slate-500 font-medium mb-4">Camford English High School</p>
+                                         <p class="text-sm text-slate-400 leading-relaxed"></p>
+                                    </div>
+                                
+                            </div>
+                        </div>
+                        
+
+                        <!-- Awards & Distinctions -->
+                        
+
+                         <!-- Certifications & Languages -->
+                         <div class="lg:col-span-6 space-y-16">
+                            
+                            <div>
+                                <h2 class="text-3xl font-bold mb-12">Certificates</h2>
+                                <div class="grid grid-cols-1 gap-4">
+                                    
+                                        <div class="reveal flex gap-4 items-center bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm text-indigo-600">
+                                                <i class="fas fa-certificate"></i>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-[11px] font-bold text-slate-900 truncate">AI-Data Quality Analyst</div>
+                                                <div class="text-[9px] text-slate-400 font-bold uppercase">Rooman Technologies</div>
+                                            </div>
+                                            
+                                        </div>
+                                    
+                                        <div class="reveal flex gap-4 items-center bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm text-indigo-600">
+                                                <i class="fas fa-certificate"></i>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-[11px] font-bold text-slate-900 truncate">Artificial Intelligence</div>
+                                                <div class="text-[9px] text-slate-400 font-bold uppercase">Elewayte</div>
+                                            </div>
+                                            
+                                        </div>
+                                    
+                                        <div class="reveal flex gap-4 items-center bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm text-indigo-600">
+                                                <i class="fas fa-certificate"></i>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-[11px] font-bold text-slate-900 truncate">Basics Of Python</div>
+                                                <div class="text-[9px] text-slate-400 font-bold uppercase">Infosys SpringBoard</div>
+                                            </div>
+                                            
+                                        </div>
+                                    
+                                        <div class="reveal flex gap-4 items-center bg-slate-50 p-4 rounded-2xl border border-slate-100">
+                                            <div class="w-10 h-10 rounded-full bg-white flex items-center justify-center shadow-sm text-indigo-600">
+                                                <i class="fas fa-certificate"></i>
+                                            </div>
+                                            <div class="flex-1">
+                                                <div class="text-[11px] font-bold text-slate-900 truncate">Google AI Essentials</div>
+                                                <div class="text-[9px] text-slate-400 font-bold uppercase">Coursera</div>
+                                            </div>
+                                            
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                            
+
+                            
+                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            
+
+            <!-- Final CTA -->
+            <section id="contact" class="py-40 px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h2 class="text-5xl md:text-8xl font-bold text-slate-900 mb-10 leading-tight">Drop a <span class="underline decoration-indigo-600 decoration-8 underline-offset-8">hello.</span></h2>
+                    <p class="text-xl text-slate-500 mb-16">I'm always looking for new experiments and interesting projects to collaborate on.</p>
+                    <a href="mailto:dhanyasreek2004@gmail.com" class="reveal inline-flex items-center gap-4 bg-slate-900 text-white px-12 py-6 rounded-full font-bold text-xl hover:bg-indigo-600 transition-all shadow-2xl hover:scale-105 no-underline">
+                        Send a Signal <i class="fas fa-paper-plane text-sm"></i>
+                    </a>
+                    
+                    <div class="mt-20 flex justify-center gap-8 reveal stagger-2">
+                        <div class="text-slate-400 font-bold text-[11px] uppercase tracking-widest flex items-center gap-3"><i class="fas fa-phone text-indigo-600"></i> +91 8074366609</div>
+                        <div class="text-slate-400 font-bold text-[11px] uppercase tracking-widest flex items-center gap-3"><i class="fas fa-envelope text-indigo-600"></i> dhanyasreek2004@gmail.com</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="py-16 border-t border-slate-100 px-6">
+            <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+                 <div class="text-slate-400 text-[10px] font-bold uppercase tracking-[0.5em]">&copy; 2026 Dhanyasree.K // Built with <a href="https://csedge.co" target="_blank" style="color:inherit; text-decoration:none; font-weight:600">CSEdge</a></div>
+                 <div class="flex gap-6">
+                    
+                        <a href="https://www.linkedin.com/in/dhanya-sree-48286931a/" target="_blank" class="text-slate-400 hover:text-indigo-600 transition-all font-bold text-[10px] uppercase tracking-widest no-underline">linkedin</a>
+                    
+                        <a href="https://github.com/KDhanyasree26" target="_blank" class="text-slate-400 hover:text-indigo-600 transition-all font-bold text-[10px] uppercase tracking-widest no-underline">github</a>
+                    
+                 </div>
+            </div>
+        </footer>
+
+        <script>
+            // Preloader logic
+            window.addEventListener('load', () => {
+                setTimeout(() => {
+                    document.getElementById('preloader').style.transform = 'translateY(-100%)';
+                    setTimeout(() => {
+                        document.getElementById('preloader').style.display = 'none';
+                        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+                    }, 1000);
+                }, 1500);
+            });
+
+            // Reveal on Scroll
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            let isMenuOpen = false;
+
+            menuBtn.addEventListener('click', () => {
+                isMenuOpen = !isMenuOpen;
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('open');
+                    menuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                } else {
+                    mobileMenu.classList.remove('open');
+                    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    isMenuOpen = false;
+                    mobileMenu.classList.remove('open');
+                    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                });
+            });
+        </script>
+    </body>
+    </html>
+  
